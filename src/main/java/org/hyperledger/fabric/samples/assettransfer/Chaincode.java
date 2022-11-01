@@ -26,7 +26,7 @@ import java.util.logging.Logger;
 
 
 @Contract(
-        name = "basic",
+        name = "dist-fed-chaincode",
         info = @Info(
                 title = "Federated Learning",
                 description = "Privacy-preserving federated learning",
