@@ -1,9 +1,9 @@
-# the first stage 
+# the first stage
 FROM gradle:jdk11-alpine AS GRADLE_BUILD
 
 # copy the build.gradle and src code to the container
 COPY src/ src/
-COPY build.gradle ./ 
+COPY build.gradle ./
 
 # Build and package our code
 RUN gradle --no-daemon build shadowJar -x checkstyleMain -x checkstyleTest
@@ -22,7 +22,7 @@ RUN addgroup --system javauser && useradd -g javauser javauser
 
 # copy only the artifacts we need from the first stage and discard the rest
 COPY --chown=javauser:javauser --from=GRADLE_BUILD /home/gradle/build/libs/chaincode.jar /chaincode.jar
-COPY --chown=javauser:javauser docker/docker-entrypoint.sh /docker-entrypoint.sh 
+COPY --chown=javauser:javauser docker/docker-entrypoint.sh /docker-entrypoint.sh
 
 ENV PORT $CC_SERVER_PORT
 EXPOSE $CC_SERVER_PORT
