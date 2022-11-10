@@ -85,7 +85,7 @@ public final class Chaincode implements ContractInterface {
     static final String MODEL_METADATA_STATUS_STARTED = "started";
     static final String MODEL_METADATA_STATUS_FINISHED = "finished";
 
-    static final long CHECK_IN_VALIDATION_PERIOD_MILLIS = 60000;
+    static final long CHECK_IN_VALIDATION_PERIOD_MILLIS = 180000;
 
     // ------------------- START ADMIN ---------------------
     @Transaction(intent = Transaction.TYPE.SUBMIT)
