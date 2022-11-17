@@ -56,7 +56,6 @@ public final class Chaincode implements ContractInterface {
     static final String AGGREGATED_SECRET_KEY = "aggregatedSecretKey";
     static final String AGGREGATED_SECRET_COLLECTION = "aggregatedSecretCollection";
     static final String CLIENT_SELECTED_FOR_ROUND_KEY = "clientSelectedForRoundKey";
-
     static final String AGGREGATOR_ATTRIBUTE = "aggregator";
     static final String LEAD_AGGREGATOR_ATTRIBUTE = "leadAggregator";
     static final String TRAINER_ATTRIBUTE = "trainer";
@@ -209,7 +208,6 @@ public final class Chaincode implements ContractInterface {
         return modelMetadata;
     }
 
-
     @Transaction(intent = Transaction.TYPE.EVALUATE)
     public EndRoundModel getEndRoundModel(final Context ctx, final String modelId) {
         ChaincodeStub stub = ctx.getStub();
@@ -330,7 +328,6 @@ public final class Chaincode implements ContractInterface {
 
         return getAggregatedSecretList(ctx, modelId, round);
     }
-
 
     private void checkHasLeadAggregatorRoleOrThrow(final Context ctx) {
         if (checkHasLeadAggregatorAttribute(ctx)) {
