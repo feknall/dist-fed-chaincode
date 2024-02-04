@@ -49,7 +49,7 @@ function createOrg1() {
   fabric-ca-client register --caname ca-org1 --id.name user1 --id.secret user1pw --id.type client --tls.certfiles "${PWD}/organizations/fabric-ca/org1/ca-cert.pem"
   { set +x; } 2>/dev/null
 
-  for trainer_id in {1..40}
+  for trainer_id in {1..16}
   do
     infoln "Registering trainer $trainer_id"
       set -x
@@ -111,7 +111,7 @@ function createOrg1() {
 
   cp "${PWD}/organizations/peerOrganizations/org1.example.com/msp/config.yaml" "${PWD}/organizations/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/config.yaml"
 
-  for trainer_id in {1..40}
+  for trainer_id in {1..16}
   do
     infoln "Generating the trainer${trainer_id} msp"
     set -x
@@ -213,7 +213,7 @@ function createOrg2() {
   fabric-ca-client register --caname ca-org2 --id.name user1 --id.secret user1pw --id.type client --tls.certfiles "${PWD}/organizations/fabric-ca/org2/ca-cert.pem"
   { set +x; } 2>/dev/null
 
-  for trainer_id in {1..40}
+  for trainer_id in {1..16}
   do
     infoln "Registering trainer${trainer_id}"
     set -x
@@ -275,7 +275,7 @@ function createOrg2() {
 
   cp "${PWD}/organizations/peerOrganizations/org2.example.com/msp/config.yaml" "${PWD}/organizations/peerOrganizations/org2.example.com/users/User1@org2.example.com/msp/config.yaml"
 
-  for trainer_id in {1..40}
+  for trainer_id in {1..16}
   do
     infoln "Generating the trainer${trainer_id} msp"
     set -x
