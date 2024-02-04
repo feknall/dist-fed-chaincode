@@ -3,7 +3,7 @@
  */
 
 plugins {
-    id 'com.github.johnrengelman.shadow' version '5.1.0'
+    id 'com.github.johnrengelman.shadow' version '8.0.0'
     id 'application'
     id 'checkstyle'
     id 'jacoco'
@@ -80,10 +80,7 @@ test {
 mainClassName = 'org.hyperledger.fabric.contract.ContractRouter'
 
 shadowJar {
-    baseName = 'chaincode'
-    version = null
-    classifier = null
-
+    archiveBaseName = 'chaincode'
     manifest {
         attributes 'Main-Class': 'org.hyperledger.fabric.contract.ContractRouter'
     }

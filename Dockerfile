@@ -1,5 +1,5 @@
 # the first stage
-FROM gradle:jdk18-alpine AS GRADLE_BUILD
+FROM gradle:jdk11-alpine AS GRADLE_BUILD
 
 # copy the build.gradle and src code to the container
 COPY src/ src/
@@ -21,7 +21,7 @@ RUN chmod +x /tini
 RUN addgroup --system javauser && useradd -g javauser javauser
 
 # copy only the artifacts we need from the first stage and discard the rest
-COPY --chown=javauser:javauser --from=GRADLE_BUILD /home/gradle/build/libs/chaincode.jar /chaincode.jar
+COPY --chown=javauser:javauser --from=GRADLE_BUILD /home/gradle/build/libs/chaincode-1.0-SNAPSHOT-all.jar /chaincode.jar
 COPY --chown=javauser:javauser docker/docker-entrypoint.sh /docker-entrypoint.sh
 
 ENV PORT $CC_SERVER_PORT
